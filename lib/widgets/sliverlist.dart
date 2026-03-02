@@ -2,9 +2,10 @@
 import 'package:choco_countries/screens/countries_details_screen.dart';
 import 'package:choco_countries/search/country_search_delegate.dart';
 import 'package:choco_countries/models/countries_model.dart';
-import 'package:choco_countries/services/countries_http.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:choco_countries/services/countries_dio.dart'; // Asegúrate de que la ruta sea correcta según tus carpetas
+// Asegúrate de que la ruta sea correcta según tus carpetas
 
 class SliverCountriesList extends StatelessWidget {
   const SliverCountriesList({super.key});
@@ -13,7 +14,7 @@ class SliverCountriesList extends StatelessWidget {
   Widget build(BuildContext context) {
     // 1. Subimos el FutureBuilder para que abrace toda la pantalla
     return FutureBuilder<List<Country>>(
-      future: getCountryTwo(),
+      future: getCountryDio(),
       builder: (context, snapshot) {
         
         // Sacamos la lista de países (si está cargando, le damos una lista vacía por ahora)
